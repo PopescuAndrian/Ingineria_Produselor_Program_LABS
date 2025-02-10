@@ -1,17 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const fetchHomeButton = document.getElementById("fetchHome");
-  const fetchAskRedditButton = document.getElementById("fetchAskReddit");
+  const fetchButton = document.getElementById("fetchButton");
 
-  if (fetchHomeButton) {
-      fetchHomeButton.addEventListener("click", function () {
-          localStorage.setItem("subreddit", "Home");
-          window.location.href = "threads.html"; // Redirect to threads page
-      });
-  }
-
-  if (fetchAskRedditButton) {
-      fetchAskRedditButton.addEventListener("click", function () {
-          localStorage.setItem("subreddit", "AskReddit");
+  // If the fetch button exists (only in index.html), set up the event
+  if (fetchButton) {
+      fetchButton.addEventListener("click", function () {
           window.location.href = "threads.html"; // Redirect to threads page
       });
   }
@@ -23,10 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function fetchRedditThreads() {
-  const subreddit = localStorage.getItem("subreddit") || "Home"; // Default to Home
-  console.log(`Fetching Reddit threads from r/${subreddit}...`);
+  console.log("Fetching Reddit threads...");
 
-  const url = `https://www.reddit.com/r/${subreddit}.json`;
+  const url = "https://www.reddit.com/r/Home.json";
 
   fetch(url)
       .then(response => {
@@ -54,3 +45,7 @@ function fetchRedditThreads() {
       })
       .catch(error => console.error("Error fetching data:", error));
 }
+
+
+
+

@@ -10,9 +10,10 @@
 
 .Home {
     font-size: large; 
-    font-weight: 600;
-    text-align: center;
+    font-weight: 10;
+    text-align: left;
     margin: 16px; 
+    
 }
 
 .Home-Border{
@@ -22,12 +23,36 @@
     border: 2px solid black; /* Custom border (Tailwind uses default styles) */
     border-radius: 16px; /* Equivalent to rounded */
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Equivalent to shadow-md */
-    border-width: 1em;
+    border-width: 1px;
+    width: 10%;
+    
 }
 
-.Home-Image{
+.AskReddit-Border{
 
-    width: 12;
-    height: 12;
-    margin: ;
+
+    padding: 16px; /* Equivalent to p-4 in Tailwind */
+    border: 2px solid black; /* Custom border (Tailwind uses default styles) */
+    border-radius: 16px; /* Equivalent to rounded */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Equivalent to shadow-md */
+    border-width: 1px;
+    width: 11%;
+    margin-left: 200px;
+    margin-top: -315px;
+    
+}
+
+
+.NoStupidQuestions-Border{
+
+
+    padding: 16px; /* Equivalent to p-4 in Tailwind */
+    border: 2px solid black; /* Custom border (Tailwind uses default styles) */
+    border-radius: 16px; /* Equivalent to rounded */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Equivalent to shadow-md */
+    border-width: 1px;
+    width: 13%;
+    margin-left: 420px;
+    margin-top: -320px;
+    
 }
