@@ -21,9 +21,9 @@ function fetchRedditThreads() {
         console.error("No subreddit specified.");
         return;
     }
-    
+
     const url = `https://www.reddit.com/r/${subreddit}.json`;
-    
+
     fetch(url)  
         .then(response => {
             if (!response.ok) {
@@ -36,15 +36,22 @@ function fetchRedditThreads() {
             const posts = data.data.children;
             const threadsList = document.getElementById("threads");
             threadsList.innerHTML = ""; // Clear previous results
-    
+
             if (posts.length === 0) {
                 threadsList.innerHTML = "<li>No threads found.</li>";
                 return;
             }
-    
+
             posts.forEach(post => {
+                const title = post.data.title;
+                const author = post.data.author;
+                const permalink = `https://www.reddit.com${post.data.permalink}`;
+
                 const listItem = document.createElement("li");
-                listItem.innerHTML = `<a href="https://www.reddit.com${post.data.permalink}" target="_blank">${post.data.title}</a>`;
+                listItem.innerHTML = `
+                    <a href="${permalink}" target="_blank"><strong>${title}</strong></a>
+                    <p>Posted by: <em>${author}</em></p>
+                `;
                 threadsList.appendChild(listItem);
             });
         })
