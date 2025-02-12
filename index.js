@@ -24,7 +24,7 @@ function fetchRedditThreads() {
     
     const url = `https://www.reddit.com/r/${subreddit}.json`;
     
-    fetch(url)
+    fetch(url)  
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
