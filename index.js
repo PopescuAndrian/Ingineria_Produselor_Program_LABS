@@ -43,14 +43,16 @@ function fetchRedditThreads() {
             }
 
             posts.forEach(post => {
-                const title = post.data.title;
-                const author = post.data.author;
+                const title = post.data.title || "No title available";
+                const author = post.data.author || "Unknown author";
                 const permalink = `https://www.reddit.com${post.data.permalink}`;
+
+                console.log(`Title: ${title}, Author: ${author}`); // Debugging
 
                 const listItem = document.createElement("li");
                 listItem.innerHTML = `
                     <a href="${permalink}" target="_blank"><strong>${title}</strong></a>
-                    <p>Posted by: <em>${author}</em></p>
+                    <span> - Posted by: <em>${author}</em></span>
                 `;
                 threadsList.appendChild(listItem);
             });
